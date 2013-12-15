@@ -10,9 +10,7 @@ class TemperatureSensor
 {
 private:
     DHT22 sensor;
-    float temperature;
-    float humidity;
-    bool error;
+    bool err;
 public:
     TemperatureSensor(uint8_t pin);
     float temperature();

@@ -24,12 +24,12 @@ set(LIBRARY_SRCS
 )
 set(LIBRARY_HDRS
 )
-include_directories(../libraries/DHT22/ ../libraries/RFM69/ ../libraries/SPIFlash)
+include_directories(../libraries/DHT22/ ../libraries/RFM69/ ../libraries/SPIFlash ../communication/)
 
 set(CODE_SRCS
-    src/main.c
+    src/main.cpp
     src/temperaturesensor.cpp
-    src/temperaturesensor.h
+#    src/temperaturesensor.h
     ${LIBRARY_SRCS}
 )
 

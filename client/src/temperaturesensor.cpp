@@ -1,6 +1,5 @@
 #include "temperaturesensor.h"
-#include <DHT22.h>
-
+#include "Arduino.h"
 TemperatureSensor::TemperatureSensor(uint8_t pin):
     sensor(pin)
 {
@@ -17,15 +16,15 @@ TemperatureSensor::read()
     switch(errorCode)
     {
     case DHT_ERROR_NONE:
-        error = false;
+        err = false;
         break;
     case DHT_ERROR_TOOQUICK:
     case DHT_ERROR_CHECKSUM:
-        error = false;
+        err = false;
         // Wait with update
         break;
     default:
-        error = true;
+        err = true;
         // Do nothing
     }
 }
@@ -45,5 +44,5 @@ TemperatureSensor::temperature()
 bool
 TemperatureSensor::error()
 {
-    return error;
+    return err;
 }
