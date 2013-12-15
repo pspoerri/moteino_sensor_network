@@ -1,5 +1,8 @@
 RFM69:
 https://github.com/LowPowerLab/RFM69.git
 
+SPIFlash
+https://github.com/LowPowerLab/SPIFlash.git
+
 DHT22:
 https://github.com/ringerc/Arduino-DHT22.git
