@@ -16,6 +16,7 @@ void setup() {
     temperatureSensor = new TemperatureSensor(DHT22PIN);
     radio = new RFM69();
     radio->initialize(RFM_FREQUENCY, RFM_NODEID, RFM_NETWORKID);
+    radio->setHighPower(true);
     radio->encrypt(RFM_KEY);
 
     Serial.begin(9600);
