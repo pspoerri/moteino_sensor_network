@@ -14,7 +14,7 @@ print_programmer_list()
 
 ##
 set(ARDUINO_DEFAULT_BOARD uno) 
-set(ARDUINO_DEFAULT_PORT /dev/tty.usbserial-AM01QG4M)
+set(ARDUINO_DEFAULT_PORT /dev/tty.usbserial-A6024Z1X)
 ##
 
 set(LIBRARY_SRCS
@@ -26,9 +26,15 @@ set(LIBRARY_HDRS
 )
 include_directories(../libraries/DHT22/ ../libraries/RFM69/ ../libraries/SPIFlash)
 
+set(CODE_SRCS
+    src/main.c
+    src/temperaturesensor.cpp
+    src/temperaturesensor.h
+    ${LIBRARY_SRCS}
+)
 
 generate_arduino_firmware(MoteinoSensorNetwork
-      SRCS  src/main.c ${LIBRARY_SRCS}
+      SRCS  ${CODE_SRCS}
       HDRS  ${LIBRARY_HDRS}
       )
 ##
