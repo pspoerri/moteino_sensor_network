@@ -8,14 +8,11 @@ cmake_minimum_required(VERSION 2.8)
 
 project(MoteinoSensorNetwork_Server C CXX)
 
-print_board_list()
-print_programmer_list()
+#print_board_list()
+#print_programmer_list()
 
-
-##
-set(ARDUINO_DEFAULT_BOARD uno) 
+set(ARDUINO_DEFAULT_BOARD uno)
 set(ARDUINO_DEFAULT_PORT /dev/tty.usbserial-AM01QG4M)
-##
 
 set(LIBRARY_SRCS
     ../libraries/DHT22/DHT22.cpp
@@ -24,12 +21,15 @@ set(LIBRARY_SRCS
 )
 set(LIBRARY_HDRS
 )
-include_directories(../libraries/DHT22/ ../libraries/RFM69/ ../libraries/SPIFlash)
+include_directories(../libraries/DHT22/ ../libraries/RFM69/ ../libraries/SPIFlash ../communication/)
 
+set(CODE_SRCS
+    src/main.cpp
+    ${LIBRARY_SRCS}
+)
 
 generate_arduino_firmware(MoteinoSensorNetwork
-      SRCS  src/main.c ${LIBRARY_SRCS}
+      SRCS  ${CODE_SRCS}
       HDRS  ${LIBRARY_HDRS}
       )
-##
 
