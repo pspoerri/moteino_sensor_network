@@ -4,6 +4,6 @@
 [submodule "libraries/SPIFlash"]
 	path = libraries/SPIFlash
 	url = https://github.com/LowPowerLab/SPIFlash.git
-[submodule "DHT22"]
-	path = DHT22
+[submodule "libraries/DHT22"]
+	path = libraries/DHT22
 	url = https://github.com/ringerc/Arduino-DHT22.git
