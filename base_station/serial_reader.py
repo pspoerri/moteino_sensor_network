@@ -1,6 +1,7 @@
 import serial
 
-def read_serial(device='/dev/ttyUSB0', speed="115200", func=lambda x: print(x)):
+lambda_print = lambda x: print(x)
+def read_serial(device='/dev/ttyUSB0', speed="115200", func=lambda_print):
     serial_device = serial.Serial(device, speed)
     for line in serial_device.readline():
         func(line)
