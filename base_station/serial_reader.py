@@ -1,10 +1,10 @@
 import serial
 
-lambda_print = lambda x: print(x)
-def read_serial(device='/dev/ttyUSB0', speed="115200", func=lambda_print):
+def read_serial(device='/dev/ttyUSB0', speed="115200", func=lambda x: print(x)):
     serial_device = serial.Serial(device, speed)
-    for line in serial_device.readline():
-        func(line)
+    while True:
+        line = serial_device.readline()
+        func(str(line))
 
     serial_device.close()
 
