@@ -12,24 +12,32 @@ print_board_list()
 print_programmer_list()
 
 
+add_definitions(-DRFM_NODEID=${NODEID})
+
+
 ##
 set(ARDUINO_DEFAULT_BOARD uno) 
-set(ARDUINO_DEFAULT_PORT /dev/tty.usbserial-A6024Z1X)
+set(ARDUINO_DEFAULT_PORT /dev/tty.usbserial-AM01QG4M)
 ##
 
 set(LIBRARY_SRCS
     ../libraries/DHT22/DHT22.cpp
     ../libraries/RFM69/RFM69.cpp
     ../libraries/SPIFlash/SPIFlash.cpp
+    ../libraries/Low-Power/LowPower.cpp
 )
 set(LIBRARY_HDRS
 )
-include_directories(../libraries/DHT22/ ../libraries/RFM69/ ../libraries/SPIFlash ../communication/)
+include_directories(
+    ../libraries/DHT22/
+    ../libraries/RFM69/
+    ../libraries/SPIFlash/
+    ../libraries/Low-Power/
+    ../communication/)
 
 set(CODE_SRCS
     src/main.cpp
     src/temperaturesensor.cpp
-#    src/temperaturesensor.h
     ${LIBRARY_SRCS}
 )
 

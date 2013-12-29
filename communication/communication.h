@@ -14,6 +14,7 @@ typedef struct {
     uint64_t uptime;
     float    temperature;
     float    humidity;
+    bool     error;
 } RFM_Payload;
 
 #endif

@@ -7,3 +7,6 @@
 [submodule "libraries/DHT22"]
 	path = libraries/DHT22
 	url = https://github.com/ringerc/Arduino-DHT22.git
+[submodule "libraries/Low-Power"]
+	path = libraries/Low-Power
+	url = https://github.com/rocketscream/Low-Power.git

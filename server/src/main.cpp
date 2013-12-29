@@ -6,6 +6,8 @@
 // We are the gateway
 #define RFM_NODEID 1
 #define SERIAL_BAUD 115200
+#define LED 9
+
 
 RFM69 *radio;
 void setup() {                
@@ -22,6 +24,14 @@ void setup() {
 
 }
 
+void blink(byte pin, int delay_ms)
+{
+    digitalWrite(pin, HIGH);
+    delay(delay_ms);
+    digitalWrite(pin, LOW);
+    delay(delay_ms);
+}
+
 byte ackCount=0;
 void loop() {
 
@@ -31,15 +41,17 @@ void loop() {
         Serial.print(" [RX_RSSI:");Serial.print(radio->readRSSI());Serial.print("]");
         if (radio->DATALEN != sizeof(RFM_Payload))
         {
-            Serial.print("Invalid payload received, not matching Payload struct!");
+            Serial.print("invalid data");
         } else {
             RFM_Payload *payload = (RFM_Payload*) radio->DATA;
             Serial.print(" nodeid=");Serial.print(payload->nodeId);
             Serial.print(" uptime=");Serial.print((unsigned long) payload->uptime);
             Serial.print(" temperature=");Serial.print(payload->temperature);
             Serial.print(" humidity=");Serial.print(payload->humidity);
-            Serial.println();
+            Serial.print(" error=");Serial.print(payload->error?1:0);
+            blink(LED, 3);
         }
+        Serial.println();
 
         if (radio->ACK_REQUESTED)
         {

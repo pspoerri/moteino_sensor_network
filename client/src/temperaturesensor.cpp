@@ -18,10 +18,8 @@ TemperatureSensor::read()
     case DHT_ERROR_NONE:
         err = false;
         break;
-    case DHT_ERROR_TOOQUICK:
     case DHT_ERROR_CHECKSUM:
         err = false;
-        // Wait with update
         break;
     default:
         err = true;
