@@ -11,13 +11,13 @@ project(MoteinoSensorNetwork_Client C CXX)
 print_board_list()
 print_programmer_list()
 
-
+set(NODEID "0x63" CACHE STRING "Moteino Network Node ID")
 add_definitions(-DRFM_NODEID=${NODEID})
 
 
 ##
 set(ARDUINO_DEFAULT_BOARD uno) 
-set(ARDUINO_DEFAULT_PORT /dev/tty.usbserial-AM01QG4M)
+set(ARDUINO_DEFAULT_PORT /dev/ttyUSB0)
 ##
 
 set(LIBRARY_SRCS

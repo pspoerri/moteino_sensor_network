@@ -12,7 +12,7 @@ project(MoteinoSensorNetwork_Server C CXX)
 #print_programmer_list()
 
 set(ARDUINO_DEFAULT_BOARD uno)
-set(ARDUINO_DEFAULT_PORT /dev/tty.usbserial-AM01QG4M)
+set(ARDUINO_DEFAULT_PORT /dev/ttyUSB0)
 
 set(LIBRARY_SRCS
     ../libraries/DHT22/DHT22.cpp
