@@ -1,4 +1,4 @@
-#include "Arduino.h"
+#include <Arduino.h>
 #include <communication.h>
 
 #include <RFM69.h>

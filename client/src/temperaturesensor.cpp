@@ -1,5 +1,6 @@
 #include "temperaturesensor.h"
-#include "Arduino.h"
+#include <Arduino.h>
+
 TemperatureSensor::TemperatureSensor(uint8_t pin):
     sensor(pin)
 {

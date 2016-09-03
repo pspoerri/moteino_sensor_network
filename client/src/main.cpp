@@ -6,6 +6,7 @@
 #include <LowPower.h>
 
 #include <RFM69.h>
+
 #ifndef RFM_NODEID
 #define RFM_NODEID 99
 #endif
@@ -29,7 +30,7 @@ void setup() {
     temperatureSensor = new TemperatureSensor(DHT22PIN);
     radio = new RFM69();
 
-    radio->initialize(RFM_FREQUENCY, RFM_NODEID, RFM_NETWORKID);
+    radio->initialize(RFM_FREQUENCY, RFM_NODEID , RFM_NETWORKID);
     radio->setHighPower(true);
     radio->encrypt(RFM_KEY);
 
@@ -44,7 +45,7 @@ void loop() {
         {
             break;
         }
-        delay(2000);
+        delay(1000);
         temperatureSensor->read();
         counter++;
     } while(temperatureSensor->error());
